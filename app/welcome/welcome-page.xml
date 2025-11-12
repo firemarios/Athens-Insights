@@ -1,0 +1,18 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" backgroundColor="#FAF9F6">
+    <GridLayout rows="*" columns="*">
+
+        <!-- Background image filling entire screen -->
+        <Image id="bgImage" 
+               src="~/assets/welcome-image.png"
+               stretch="aspectFill"
+               row="0" col="0" height="500%" />
+
+        <!-- Overlay content -->
+        <GridLayout row="0" col="0">
+            <Button id="getStartedBtn" text="Get Started!" tap="onGetStartedTap"
+                    horizontalAlignment="right"
+                    verticalAlignment="bottom" />
+        </GridLayout>
+
+    </GridLayout>
+</Page>

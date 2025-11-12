@@ -5,9 +5,14 @@
   "private": true,
   "dependencies": {
     "@nativescript/core": "~8.9.0",
-    "@nativescript/theme": "^3.1.0"
+    "@nativescript/theme": "^3.1.0",
+    "@nstudio/nativescript-fancyalert": "^4.0.1",
+    "nativescript-bottom-navigation": "^2.0.5",
+    "nativescript-effects": "^3.0.0",
+    "nativescript-radiobutton": "^0.1.0"
   },
   "devDependencies": {
+    "@nativescript/android": "8.9.2",
     "@nativescript/types": "~8.9.0",
     "@nativescript/webpack": "~5.0.0",
     "typescript": "~5.4.0"

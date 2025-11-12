@@ -1,0 +1,7 @@
+<resources>
+    <!-- App name that shows on the device -->
+    <string name="app_name">Athens Insights</string>
+
+    <!-- This one is being referenced in your AndroidManifest.xml -->
+    <string name="title_activity_kimera">Athens Insights</string>
+</resources>

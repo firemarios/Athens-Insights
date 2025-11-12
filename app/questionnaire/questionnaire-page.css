@@ -1,0 +1,54 @@
+﻿@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+#page {
+    padding: 15%;
+    padding-top: 40%;
+    background-color: #FAF9F6;
+}
+
+#question {
+    color: #333333;
+    font-size: 22px;
+    vertical-align: top;
+    margin-top: 1%;
+}
+
+#answers {
+    margin-top: 8%;
+    display: flex;
+    gap: 100px;
+    padding: 10%;
+    margin-bottom: 8%;
+    background-color: #F0F0F0;
+    border-radius: 15%;
+}
+
+#answers Button.unselected {
+    width: 90%;
+    border-radius: 60px;
+    background-color: rgb(84, 106, 160);
+    color: white;
+    font-size: 18px;
+}
+
+#answers Button.selected {
+    width: 90%;
+    border-radius: 60px;
+    background-color: rgb(230, 230, 230);
+    color: rgb(84, 106, 160);
+    font-size: 18px;
+    border: 2px solid rgb(84, 106, 160);
+}
+
+#btn-container {
+    background-color: #FAF9F6;
+}
+
+#next {
+    background-color: rgb(84, 106, 160);
+    font-size: 18px;
+    width: 30%;
+    border-radius: 60px;
+    color: white;
+}

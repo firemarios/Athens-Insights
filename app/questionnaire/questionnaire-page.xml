@@ -1,0 +1,20 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true"
+    xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:mdc="nativescript-bottom-navigation"
+    backgroundColor="#FAF9F6">
+    <GridLayout id="page">
+        <Label id="question" text="What music do you like?" />
+        <StackLayout id="answers" orientation="vertical">
+            <Button id="btn1" text="Rock" class="answer-btn" />
+            <Button id="btn2" text="Pop" class="answer-btn" />
+            <Button id="btn3" text="Jazz" class="answer-btn" />
+            <Button id="btn4" text="Classical" class="answer-btn" />
+            <Button id="btn5" text="Hip Hop" class="answer-btn" />
+            <Button id="btn6" text="Country" class="answer-btn" />
+            <Button id="btn7" text="Electronic" class="answer-btn" />
+            <Button id="btn8" text="Reggae" class="answer-btn" />
+        </StackLayout>
+        <StackLayout id="btn-container" verticalAlignment="bottom">
+            <Button tap="nextBtnTap" id="next" text="Next" class="next-btn" />
+        </StackLayout>
+    </GridLayout>
+</Page>

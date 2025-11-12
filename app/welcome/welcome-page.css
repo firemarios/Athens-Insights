@@ -1,0 +1,11 @@
+﻿@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+#getStartedBtn {
+    margin-right: 15%;
+    margin-bottom: 5%;
+    padding: 15%;
+    border-radius: 40%;
+    background-color: rgb(84, 106, 160);
+    color: white;
+}
