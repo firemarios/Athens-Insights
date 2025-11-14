@@ -15,7 +15,8 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="LaunchScreenTheme" parent="LaunchScreenThemeBase">
+    <style name="LaunchScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@color/launch_screen_bg</item>
     </style>
 
     <!-- theme to use AFTER launch screen is loaded-->

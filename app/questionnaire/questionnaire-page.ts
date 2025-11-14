@@ -1,4 +1,4 @@
-import { Button, NavigatedData, Page, View } from '@nativescript/core'
+import { Button, NavigatedData, Page, View, booleanConverter, Style, CssProperty } from '@nativescript/core'
 import { localUtils } from '~/code/local-utils'
 import { ViewModel } from './questionnaire-view-model'
 import 'nativescript-effects';
@@ -6,6 +6,15 @@ import 'nativescript-effects';
 let page: Page;
 let btns: Button[];
 let nextBtn: Button;
+
+export const selectedProperty = new CssProperty<Style, boolean>({
+    name: "selected",
+    cssName: "selected",
+    defaultValue: false,
+    valueConverter: booleanConverter
+});
+
+selectedProperty.register(Style);
 
 export function onNavigatingTo(args: NavigatedData) {
   page = <Page>args.object
@@ -23,6 +32,19 @@ export function onNavigatingTo(args: NavigatedData) {
     page.getViewById('btn6'),
     page.getViewById('btn7'),
     page.getViewById('btn8'),
+    page.getViewById('btn9'),
+    page.getViewById('btn10'),
+    page.getViewById('btn11'),
+    page.getViewById('btn12'),
+    page.getViewById('btn13'),
+    page.getViewById('btn14'),
+    page.getViewById('btn15'),
+    page.getViewById('btn16'),
+    page.getViewById('btn17'),
+    page.getViewById('btn18'),
+    page.getViewById('btn19'),
+    page.getViewById('btn20'),
+
   ]
 
   nextBtn = page.getViewById('next')
@@ -60,6 +82,9 @@ function resetBtns() {
 export function nextBtnTap() {
   localUtils.vibrate(2);
   localUtils.animateOut(nextBtn, "fade", 500);
+  setTimeout(() => {
+    localUtils.navigateTo("home/home-page");
+  }, 2000);
 
   btns.forEach(btn => {
     localUtils.animateOut(btn, "slideRight", 1000);

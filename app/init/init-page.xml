@@ -1,0 +1,6 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" backgroundColor="#c8f8ff">
+    <GridLayout rows="auto, auto, auto" columns="*" verticalAlignment="middle" horizontalAlignment="center" paddingTop="-50%">
+        <Image src="~/assets/logo.png" row="0" horizontalAlignment="center" height="40%" stretch="aspectFit" />
+        <ActivityIndicator busy="true" row="1" horizontalAlignment="center" marginTop="20" width="48" height="48" color="#6a6a6a" />
+    </GridLayout> 
+</Page>

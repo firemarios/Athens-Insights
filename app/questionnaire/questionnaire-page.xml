@@ -1,18 +1,32 @@
 <Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true"
-    xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:mdc="nativescript-bottom-navigation"
+    xmlns="http://schemas.nativescript.org/tns.xsd"
     backgroundColor="#FAF9F6">
     <GridLayout id="page">
-        <Label id="question" text="What music do you like?" />
-        <StackLayout id="answers" orientation="vertical">
-            <Button id="btn1" text="Rock" class="answer-btn" />
-            <Button id="btn2" text="Pop" class="answer-btn" />
-            <Button id="btn3" text="Jazz" class="answer-btn" />
-            <Button id="btn4" text="Classical" class="answer-btn" />
-            <Button id="btn5" text="Hip Hop" class="answer-btn" />
-            <Button id="btn6" text="Country" class="answer-btn" />
-            <Button id="btn7" text="Electronic" class="answer-btn" />
-            <Button id="btn8" text="Reggae" class="answer-btn" />
-        </StackLayout>
+        <Label id="question" text="Choose what you are interested in:" />
+        <ScrollView id="answers" orientation="vertical">
+            <StackLayout>
+                <Button id="btn1" text="Music &amp; Concerts " class="answer-btn" />
+                <Button id="btn2" text="Theater &amp; Performing Arts" class="answer-btn" />
+                <Button id="btn3" text="Sports &amp; Recreation " class="answer-btn" />
+                <Button id="btn4" text="Food &amp; Dining " class="answer-btn" />
+                <Button id="btn5" text="Art &amp; Exhibitions" class="answer-btn" />
+                <Button id="btn6" text="Nightlife &amp; Entertainment" class="answer-btn" />
+                <Button id="btn7" text="Technology &amp; Innovations" class="answer-btn" />
+                <Button id="btn8" text="Cultural Events " class="answer-btn" />
+                <Button id="btn9" text="Educational Workshops" class="answer-btn" />
+                <Button id="btn10" text="Community &amp; Social " class="answer-btn" />
+                <Button id="btn11" text="Festivals &amp; Celebrations" class="answer-btn" />
+                <Button id="btn12" text="Film &amp; Cinema" class="answer-btn" />
+                <Button id="btn13" text="Business &amp; Networking" class="answer-btn" />
+                <Button id="btn14" text="Health &amp; Wellness" class="answer-btn" />
+                <Button id="btn15" text="Fashion &amp; Beauty" class="answer-btn" />
+                <Button id="btn16" text="Outdoor Activities" class="answer-btn" />
+                <Button id="btn17" text="Gaming &amp; eSports" class="answer-btn" />
+                <Button id="btn18" text="Literature &amp; Books " class="answer-btn" />
+                <Button id="btn19" text="Transportation &amp; Travel" class="answer-btn" />
+                <Button id="btn20" text="Other" class="answer-btn" />
+            </StackLayout>
+        </ScrollView>
         <StackLayout id="btn-container" verticalAlignment="bottom">
             <Button tap="nextBtnTap" id="next" text="Next" class="next-btn" />
         </StackLayout>
