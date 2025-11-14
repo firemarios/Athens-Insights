@@ -1,12 +1,22 @@
 <Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" backgroundColor="white">
-    <ScrollView class="page">
-
-    </ScrollView>
-    <StackLayout horizontalAlignment="center" verticalAlignment="bottom" orientation="horizontal" id="navbar">
-        <Image id="home-btn" class="nav-btn" src="~/assets/home.png"/>
-        <Image class="nav-btn" src="~/assets/events.png"/>
-        <Image class="nav-btn" src="~/assets/chat.png"/>
-        <Image class="nav-btn" src="~/assets/mood.png"/>
-        <Image class="nav-btn" src="~/assets/settings.png"/>
-    </StackLayout>
+    <GridLayout rows="*, auto">
+        <ScrollView row="0" class="page" orientation="vertical" horizontalAlignment="center" verticalAlignment="top">
+            <StackLayout id="events" horizontalAlignment="center">
+                <Label id="events-title" text="Suggested Events" color="black"/>
+                <StackLayout class="hr-light"></StackLayout>
+                <StackLayout id="event-container" orientation="horizontal">
+                    <Image class="event-image" src="~/assets/music_note.png"/>
+                    <Label class="event-name" text="Art Exhibition"/>
+                    <Label class="event-date" text="June 15, 2024"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout row="1" horizontalAlignment="center" verticalAlignment="bottom" orientation="horizontal" id="navbar">
+            <Image id="home-btn" class="nav-btn" src="~/assets/home.png"/>
+            <Image class="nav-btn" src="~/assets/events.png"/>
+            <Image class="nav-btn" src="~/assets/chat.png"/>
+            <Image class="nav-btn" src="~/assets/mood.png"/>
+            <Image class="nav-btn" src="~/assets/settings.png"/>
+        </StackLayout>
+    </GridLayout>
 </Page>

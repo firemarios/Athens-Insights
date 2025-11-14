@@ -1,4 +1,4 @@
-import { Button, NavigatedData, Page, View, booleanConverter, Style, CssProperty } from '@nativescript/core'
+import { Button, NavigatedData, Page, View, booleanConverter, Style, CssProperty, isApple, ApplicationSettings } from '@nativescript/core'
 import { localUtils } from '~/code/local-utils'
 import { ViewModel } from './questionnaire-view-model'
 import 'nativescript-effects';
@@ -48,6 +48,7 @@ export function onNavigatingTo(args: NavigatedData) {
   ]
 
   nextBtn = page.getViewById('next')
+  nextBtn.isEnabled = false;
 
   btns.forEach(btn => {
     (btn as any).selected = false;
@@ -59,13 +60,16 @@ export function onNavigatingTo(args: NavigatedData) {
 
   btns.forEach(btn => {
     btn.on("tap", () => {
+        localUtils.vibrate(2);
         if ((btn as any).selected) {
           (btn as any).selected = false;
           btn.className = "unselected";
+          getSelectedBtns();
           return;
         } else {
           (btn as any).selected = true;
           btn.className = "selected";
+          getSelectedBtns();
         }
       });
   });
@@ -84,14 +88,29 @@ export function nextBtnTap() {
   localUtils.animateOut(nextBtn, "fade", 500);
   setTimeout(() => {
     localUtils.navigateTo("home/home-page");
-  }, 2000);
+  }, 1000);
 
   btns.forEach(btn => {
     localUtils.animateOut(btn, "slideRight", 1000);
-    setTimeout(() => {
-      resetBtns();  
-      localUtils.animateIn(btn, "slideRight", 1000);
-      localUtils.animateIn(nextBtn, "fade", 500);
-    }, 1200);
+    // setTimeout(() => {
+    //   resetBtns();  
+    //   localUtils.animateIn(btn, "slideRight", 1000);
+    //   localUtils.animateIn(nextBtn, "fade", 500);
+    // }, 1200);
   });
+  const selectedBtns = btns.filter((btn) => (btn as any).selected === true);
+  
+  selectedBtns.forEach(btn => {
+    ApplicationSettings.setBoolean(btn.text, true);
+  });
+}
+
+function getSelectedBtns() {
+  const selectedBtns = btns.filter((btn) => (btn as any).selected === true);
+
+  if (selectedBtns.length > 0) {
+    nextBtn.isEnabled = true;
+  } else {
+    nextBtn.isEnabled = false;
+  }
 }
