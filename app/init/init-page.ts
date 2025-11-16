@@ -4,7 +4,7 @@ import { ViewModel } from './init-view-model'
 import 'nativescript-effects';
 
 let page: Page;
-ApplicationSettings.setBoolean('first_time', false)
+ApplicationSettings.setBoolean('first_time', false);
 const first_time = ApplicationSettings.getBoolean('first_time', true);
 
 export function onNavigatingTo(args: NavigatedData) {
