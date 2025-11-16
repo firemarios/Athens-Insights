@@ -1,13 +1,13 @@
-import { NavigatedData, Page, View, ApplicationSettings, Button, StackLayout } from '@nativescript/core'
+import { NavigatedData, Page, View, ApplicationSettings, Button, StackLayout, Image, Label, ScrollView, Color } from '@nativescript/core'
 import { Builder } from '@nativescript/core/ui/builder'
 import { localUtils, apiUrl } from '~/code/local-utils'
-import { ViewModel } from './home-view-model'
+import { ViewModel } from './mood-view-model'
 import 'nativescript-effects';
 import { apiUtils } from '~/code/api-utils';
 
 let page: Page;
 
-export function onNavigatingTo(args: NavigatedData) {
+export async function onNavigatingTo(args: NavigatedData) {
   page = <Page>args.object
 
   page.bindingContext = new ViewModel()

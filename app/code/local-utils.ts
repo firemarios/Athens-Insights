@@ -203,7 +203,8 @@ export class localUtils {
             <Image id="events-nav" class="nav-btn" src="~/assets/events.png" ontap="goEvents"/>
             <Image id="chat-nav" class="nav-btn" src="~/assets/chat.png" ontap="goChat"/>
             <Image id="mood-nav" class="nav-btn" src="~/assets/mood.png" ontap="goMood"/>
-            <Image id="setting-nav" class="nav-btn" src="~/assets/settings.png" ontap="goSettings"/>
+            <Image id="traffic-nav" class="nav-btn" src="~/assets/traffic.png" ontap="goTraffic"/>
+            <Image id="settings-nav" class="nav-btn" src="~/assets/settings.png" ontap="goSettings"/>
         </StackLayout>`;
     }
 }

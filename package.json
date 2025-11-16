@@ -11,7 +11,8 @@
     "@nstudio/nativescript-fancyalert": "^4.0.1",
     "nativescript-bottom-navigation": "^2.0.5",
     "nativescript-effects": "^3.0.0",
-    "nativescript-radiobutton": "^0.1.0"
+    "nativescript-radiobutton": "^0.1.0",
+    "nativescript-videoplayer": "^5.0.1"
   },
   "devDependencies": {
     "@nativescript/android": "8.9.2",

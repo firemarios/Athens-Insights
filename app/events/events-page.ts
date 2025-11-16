@@ -15,7 +15,7 @@ export async function onNavigatingTo(args: NavigatedData) {
   localUtils.setStatusBarStyle(true)
 
   const navBar = page.getViewById<StackLayout>("navbar")
-  const navBarView = Builder.parse(localUtils.getNavBar(), { goHome, goEvents, goChat, goMood, goSettings });
+  const navBarView = Builder.parse(localUtils.getNavBar(), { goHome, goEvents, goChat, goMood, goTraffic, goSettings });
   navBar.addChild(navBarView);
 
   randomEventGenerator();
@@ -95,4 +95,8 @@ export function goMood() {
 
 export function goSettings() {
   localUtils.navigateTo("settings/settings-page")
+}
+
+export function goTraffic() {
+  localUtils.navigateTo("traffic/traffic-page")
 }

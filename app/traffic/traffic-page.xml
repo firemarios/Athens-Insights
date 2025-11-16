@@ -1,0 +1,58 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:VideoPlayer="nativescript-videoplayer" backgroundColor="white">
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" class="page">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Κόμβος Παπάγου"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera1" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="The Mall Athens"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera2" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Κόμβος Μεταμόρφωσης"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera3" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Διόδια Κορωπίου"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera4" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Δουκ. Πλακεντίας"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera5" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Διόδια Ρουπακίου"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera6" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Βουλή"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera7" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Αθηνών - Θεσσαλονίκης"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera8" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                    <StackLayout id="camera-container">
+                        <Label id="title" text="Λιμάνη Πειραιά"/>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <VideoPlayer:Video id="ipCamera9" autoplay="true" controls="false" stretch="aspectFill" height="600px" width="100%"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout row="1" horizontalAlignment="center" verticalAlignment="bottom" orientation="horizontal" id="navbar">
+
+        </StackLayout>
+    </GridLayout>
+</Page>

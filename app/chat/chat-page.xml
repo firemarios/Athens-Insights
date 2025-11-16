@@ -1,0 +1,29 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:map="@nativescript/google-maps" backgroundColor="white">
+    <GridLayout rows="*, auto, auto">
+        <StackLayout row="0" id="page">
+            <ScrollView>
+                <StackLayout id="chat">
+                    <StackLayout id="ai-message" horizontalAlignment="left">
+                        <Label text="Hello! How can I assist you today?" class="ai-text"/>
+                    </StackLayout>
+                    <StackLayout id="user-message" horizontalAlignment="right">
+                        <Label text="Can you tell me about the weather today?" class="user-text"/>
+                    </StackLayout>
+                    <StackLayout id="ai-message" horizontalAlignment="left">
+                        <Label text="Sure! Today's weather is sunny with a high of 75°F (24°C) and a low of 55°F (13°C)." class="ai-text"/>
+                    </StackLayout>
+                    <StackLayout id="user-message" horizontalAlignment="right">
+                        <Label text="Thank you!" class="user-text"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout row="1" verticalAlignment="center" id="user-input-container" orientation="horizontal">
+            <TextField hint="Send a message..." id="user-input" color="black"/>
+            <Image id="send-icon" src="~/assets/send.png" tap="sendMessage"/>
+        </StackLayout>
+        <StackLayout row="2" horizontalAlignment="center" verticalAlignment="bottom" orientation="horizontal" id="navbar">
+
+        </StackLayout>
+    </GridLayout>
+</Page>

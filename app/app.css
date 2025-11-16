@@ -22,6 +22,12 @@ This is where the vast majority of your CSS code goes. */
 }
 
 .nav-btn {
-    height: 70%;
-    margin: 5%;
+    height: 65%;
+    margin: 3%;
+}
+
+#title {
+    font-size: 24;
+    color: black;
+    font-weight: bold;
 }

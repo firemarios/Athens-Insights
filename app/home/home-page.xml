@@ -1,4 +1,4 @@
-<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:map="@nativescript/google-maps" backgroundColor="white">
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" backgroundColor="white">
     <GridLayout rows="*, auto">
         <ScrollView row="0" class="page" orientation="vertical" horizontalAlignment="center" verticalAlignment="top">
             <GridLayout rows="*, auto">
@@ -17,10 +17,7 @@
                 <StackLayout row="1" id="mood" horizontalAlignment="center">
                     <Label id="title" text="Athens Mood" color="black"/>
                     <StackLayout class="hr-light"></StackLayout>
-                    <map:MapView
-                        id="mapView"
-                        zoom="12">
-                    </map:MapView>
+                    <Image src="~/assets/heatmap.png"/>
                 </StackLayout>
             </GridLayout>
         </ScrollView>

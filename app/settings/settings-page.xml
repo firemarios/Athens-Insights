@@ -1,0 +1,19 @@
+<Page navigatingTo="onNavigatingTo" iosOverflowSafeArea="true" actionBarHidden="true" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:VideoPlayer="nativescript-videoplayer" backgroundColor="white">
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" class="page">
+            <ScrollView>
+                <StackLayout>
+                    <Label id="title" text="Preferences"/>
+                    <StackLayout class="hr-light"></StackLayout>
+                    <Button text="Reset Preferences" backgroundColor="#546aa0" tap="reset"/>
+                    <Label id="title" text="About Us"/>
+                    <StackLayout class="hr-light"></StackLayout>
+                    <Label text="Είμαστε μαθητές της Ελληνογερμανικής Αγωγής με την ομάδα AIFORALL." color="black" fontSize="18" textWrap="true"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout row="1" horizontalAlignment="center" verticalAlignment="bottom" orientation="horizontal" id="navbar">
+
+        </StackLayout>
+    </GridLayout>
+</Page>

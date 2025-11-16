@@ -1,0 +1,14 @@
+﻿@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+.page {
+    width: 95%;
+    height: 100%;
+    padding: 4%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+#traffic-nav {
+    opacity: 0.7;
+}

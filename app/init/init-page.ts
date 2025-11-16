@@ -4,7 +4,6 @@ import { ViewModel } from './init-view-model'
 import 'nativescript-effects';
 
 let page: Page;
-ApplicationSettings.setBoolean('first_time', false);
 const first_time = ApplicationSettings.getBoolean('first_time', true);
 
 export function onNavigatingTo(args: NavigatedData) {
@@ -16,7 +15,7 @@ export function onNavigatingTo(args: NavigatedData) {
 
   if (first_time) {
     localUtils.navigateTo("welcome/welcome-page")
-    //ApplicationSettings.setBoolean('first_time', true)
+    ApplicationSettings.setBoolean('first_time', false)
   }
   else {
     localUtils.navigateTo("home/home-page")
