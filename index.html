@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Athens Insights - Η πόλη που καταλαβαίνει πώς νιώθεις</title>
-    <meta name="description" content="AI Athens Insights - Μια έξυπνη εφαρμογή πόλης με τεχνητή νοημοσύνη που προσαρμόζεται στη διάθεσή σου και σε καθοδηγεί στην Αθήνα.">
+    <meta name="description"
+        content="AI Athens Insights - Μια έξυπνη εφαρμογή πόλης με τεχνητή νοημοσύνη που προσαρμόζεται στη διάθεσή σου και σε καθοδηγεί στην Αθήνα.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -43,7 +47,12 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
             line-height: 1.2;
@@ -181,8 +190,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
         }
 
         .neural-lines {
@@ -199,8 +215,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.2; }
+
+            0%,
+            100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
         }
 
         .hero-content {
@@ -321,7 +344,6 @@
 
         .placeholder-box {
             width: 100%;
-            height: 280px;
             background: var(--glass-bg);
             border: 2px dashed var(--glass-border);
             border-radius: 20px;
@@ -346,7 +368,6 @@
 
         .image-placeholder {
             width: 100%;
-            height: 200px;
             background: var(--glass-bg);
             border: 2px dashed var(--glass-border);
             border-radius: 16px;
@@ -604,7 +625,6 @@
         .app-screen-placeholder {
             width: 100%;
             aspect-ratio: 9/19;
-            max-height: 500px;
             background: var(--glass-bg);
             border: 2px dashed var(--glass-border);
             border-radius: 24px;
@@ -729,7 +749,7 @@
             margin-bottom: 16px;
         }
 
-        .moody-info > p {
+        .moody-info>p {
             color: var(--text-secondary);
             font-size: 18px;
             margin-bottom: 32px;
@@ -1110,6 +1130,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+
             .features-grid,
             .future-grid,
             .metrics-grid {
@@ -1201,8 +1222,14 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        img {
+            width: 100%;
+            border-radius: 25px;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -1231,11 +1258,11 @@
             <div class="hero-content">
                 <h1 class="hero-title">AI Athens Insights</h1>
                 <p class="hero-subtitle">Η πόλη που καταλαβαίνει πώς νιώθεις</p>
-                <p class="hero-description">Μια έξυπνη εμπειρία πόλης με τεχνητή νοημοσύνη που προσαρμόζεται στη διάθεσή σου και σε καθοδηγεί στην Αθήνα σε πραγματικό χρόνο.</p>
+                <p class="hero-description">Μια έξυπνη εμπειρία πόλης με τεχνητή νοημοσύνη που προσαρμόζεται στη διάθεσή
+                    σου και σε καθοδηγεί στην Αθήνα σε πραγματικό χρόνο.</p>
                 <div class="hero-visual-placeholder">
                     <div class="placeholder-box">
-                        <span class="placeholder-icon">🏙️</span>
-                        <span class="placeholder-text">Εικόνα Hero</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/welcome-image.png">
                     </div>
                 </div>
                 <div class="hero-buttons">
@@ -1252,11 +1279,13 @@
                     <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
                 </linearGradient>
             </defs>
-            <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
-            <path d="M0,130 Q150,80 300,130 T600,130 T900,130 T1200,130" stroke="url(#lineGrad)" stroke-width="1" fill="none" opacity="0.5"/>
-            <circle cx="300" cy="100" r="4" fill="#8b5cf6" opacity="0.8"/>
-            <circle cx="600" cy="100" r="6" fill="#06b6d4" opacity="0.8"/>
-            <circle cx="900" cy="100" r="4" fill="#8b5cf6" opacity="0.8"/>
+            <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="url(#lineGrad)" stroke-width="2"
+                fill="none" />
+            <path d="M0,130 Q150,80 300,130 T600,130 T900,130 T1200,130" stroke="url(#lineGrad)" stroke-width="1"
+                fill="none" opacity="0.5" />
+            <circle cx="300" cy="100" r="4" fill="#8b5cf6" opacity="0.8" />
+            <circle cx="600" cy="100" r="6" fill="#06b6d4" opacity="0.8" />
+            <circle cx="900" cy="100" r="4" fill="#8b5cf6" opacity="0.8" />
         </svg>
     </section>
 
@@ -1294,12 +1323,12 @@
         <div class="container">
             <div class="solution-header">
                 <h2 class="section-title reveal">Μια πόλη που σε καταλαβαίνει</h2>
-                <p class="reveal">Η τεχνητή νοημοσύνη μας αναλύει τη συναισθηματική σου κατάσταση και τις προτιμήσεις σου για να δημιουργήσει μια πραγματικά εξατομικευμένη εμπειρία Αθήνας που εξελίσσεται μαζί σου.</p>
+                <p class="reveal">Η τεχνητή νοημοσύνη μας αναλύει τη συναισθηματική σου κατάσταση και τις προτιμήσεις
+                    σου για να δημιουργήσει μια πραγματικά εξατομικευμένη εμπειρία Αθήνας που εξελίσσεται μαζί σου.</p>
             </div>
             <div class="solution-image reveal">
                 <div class="image-placeholder">
-                    <span class="placeholder-icon">🗺️</span>
-                    <span class="placeholder-text">Οπτικοποίηση Χάρτη Διάθεσης</span>
+                    <img src="https://athens-insights.vercel.app/app/assets/heatmap.png"/>
                 </div>
             </div>
             <div class="features-grid reveal">
@@ -1366,26 +1395,6 @@
         </div>
     </section>
 
-    <!-- Image Placeholder Section -->
-    <section class="visual-showcase">
-        <div class="container">
-            <div class="showcase-grid reveal">
-                <div class="image-placeholder">
-                    <span class="placeholder-icon">📱</span>
-                    <span class="placeholder-text">Διεπαφή Εφαρμογής</span>
-                </div>
-                <div class="image-placeholder">
-                    <span class="placeholder-icon">🤖</span>
-                    <span class="placeholder-text">AI Βοηθός</span>
-                </div>
-                <div class="image-placeholder">
-                    <span class="placeholder-icon">🗺️</span>
-                    <span class="placeholder-text">Χάρτης Διάθεσης</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- App Preview Section -->
     <section class="app-preview" id="app-preview">
         <div class="container">
@@ -1393,43 +1402,37 @@
             <div class="app-screens-grid reveal">
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">📝</span>
-                        <span class="placeholder-text">Οθόνη Εγγραφής</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_54423B36-364E-45B0-9188-9A4F04253519.png"/>
                     </div>
                     <p class="screen-label">Εγγραφή</p>
                 </div>
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">🗺️</span>
-                        <span class="placeholder-text">Οθόνη Χάρτη Διάθεσης</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_CF878EF2-0203-4BA7-B589-D738C2B8C92E.png"/>
                     </div>
                     <p class="screen-label">Χάρτης Διάθεσης</p>
                 </div>
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">📅</span>
-                        <span class="placeholder-text">Οθόνη Εκδηλώσεων</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_F6AC3101-0065-4E4E-8373-8E69EA1AE509.png"/>
                     </div>
                     <p class="screen-label">Εβδομαδιαίες Εκδηλώσεις</p>
                 </div>
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">💬</span>
-                        <span class="placeholder-text">Οθόνη AI Chat</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_31BA6A20-E2C5-41B8-A62C-8A50656CC8BE.png"/>
                     </div>
                     <p class="screen-label">Moody AI Chat</p>
                 </div>
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">📊</span>
-                        <span class="placeholder-text">Οθόνη Αναλυτικών</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_68F8A983-78D5-403E-9BCA-9B96154C16C6.png"/>
                     </div>
                     <p class="screen-label">Αναλυτικά Διάθεσης</p>
                 </div>
                 <div class="app-screen-item">
                     <div class="app-screen-placeholder">
-                        <span class="placeholder-icon">📹</span>
-                        <span class="placeholder-text">Οθόνη Κάμερας</span>
+                        <img src="https://athens-insights.vercel.app/app/assets/simulator_screenshot_1ABAEBBF-0E68-4CEC-AA02-C636B3053D3D.png"/>
                     </div>
                     <p class="screen-label">Κάμερες Κυκλοφορίας</p>
                 </div>
@@ -1483,7 +1486,8 @@
             <div class="moody-content reveal">
                 <div class="moody-info">
                     <h2>Γνώρισε τον Moody</h2>
-                    <p>Ο συναισθηματικός σου AI σύντροφος πόλης που κατανοεί πώς νιώθεις και προτείνει την τέλεια εμπειρία Αθήνας.</p>
+                    <p>Ο συναισθηματικός σου AI σύντροφος πόλης που κατανοεί πώς νιώθεις και προτείνει την τέλεια
+                        εμπειρία Αθήνας.</p>
                     <div class="moody-features">
                         <div class="moody-pill"><span>✓</span> Απαντά σε ερωτήσεις</div>
                         <div class="moody-pill"><span>✓</span> Προτείνει μέρη</div>
@@ -1500,9 +1504,11 @@
                         </div>
                     </div>
                     <div class="chat-messages">
-                        <div class="chat-msg ai">Γεια σου! Είμαι ο Moody, ο οδηγός σου στην Αθήνα. Πώς νιώθεις σήμερα;</div>
+                        <div class="chat-msg ai">Γεια σου! Είμαι ο Moody, ο οδηγός σου στην Αθήνα. Πώς νιώθεις σήμερα;
+                        </div>
                         <div class="chat-msg user">Νιώθω λίγο αγχωμένος και χρειάζομαι χαλάρωση.</div>
-                        <div class="chat-msg ai">Καταλαβαίνω. Ας σου προτείνω ήσυχα μέρη - δοκίμασε τον Εθνικό Κήπο ή ένα καφέ δίπλα στη θάλασσα στο Μικρολίμανο!</div>
+                        <div class="chat-msg ai">Καταλαβαίνω. Ας σου προτείνω ήσυχα μέρη - δοκίμασε τον Εθνικό Κήπο ή
+                            ένα καφέ δίπλα στη θάλασσα στο Μικρολίμανο!</div>
                     </div>
                     <div class="chat-input-area">
                         <input type="text" class="chat-input" placeholder="Ρώτα τον Moody...">
@@ -1630,7 +1636,7 @@
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1690,4 +1696,5 @@
         });
     </script>
 </body>
+
 </html>
