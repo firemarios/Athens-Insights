@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Athens Insights - Η πόλη που καταλαβαίνει πώς νιώθεις</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-violet: #a855f7;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glow-purple: rgba(139, 92, 246, 0.5);
+            --glow-cyan: rgba(6, 182, 212, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--glow-purple);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .gradient-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-purple);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .gradient-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-cyan);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -4s;
+        }
+
+        .gradient-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-violet);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .neural-lines {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-image:
+                radial-gradient(circle at 20% 30%, var(--accent-purple) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, var(--accent-cyan) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, var(--accent-purple) 1px, transparent 1px),
+                radial-gradient(circle at 60% 20%, var(--accent-cyan) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-family: 'Outfit', sans-serif;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .btn-primary {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px var(--glow-purple);
+        }
+
+        .btn-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            box-shadow: 0 0 30px var(--glow-cyan);
+        }
+
+        .athens-abstract {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 200px;
+            opacity: 0.3;
+        }
+
+        .hero-visual-placeholder {
+            margin: 40px auto;
+            max-width: 500px;
+        }
+
+        .placeholder-box {
+            width: 100%;
+            height: 280px;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .placeholder-icon {
+            font-size: 64px;
+            opacity: 0.6;
+        }
+
+        .placeholder-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .image-placeholder .placeholder-icon {
+            font-size: 40px;
+            opacity: 0.5;
+        }
+
+        .image-placeholder .placeholder-text {
+            font-size: 12px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border-radius: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+
+        .comparison-card.traditional {
+            opacity: 0.7;
+        }
+
+        .comparison-card.ai-insights {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+
+        .traditional .card-icon {
+            background: rgba(100, 116, 139, 0.2);
+        }
+
+        .ai-insights .card-icon {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+        }
+
+        .comparison-card h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card li:last-child {
+            border-bottom: none;
+        }
+
+        .ai-insights li {
+            color: var(--text-primary);
+        }
+
+        .check-icon {
+            color: var(--accent-cyan);
+            font-size: 18px;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .solution-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .solution-header p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-top: 16px;
+        }
+
+        .solution-image {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-item h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+        }
+
+        .features-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+        }
+
+        .feature-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Visual Showcase Section */
+        .visual-showcase {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* App Preview Section */
+        .app-preview {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .app-screens-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .app-screen-item {
+            text-align: center;
+        }
+
+        .app-screen-placeholder {
+            width: 100%;
+            aspect-ratio: 9/19;
+            max-height: 500px;
+            background: var(--glass-bg);
+            border: 2px dashed var(--glass-border);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .app-screen-placeholder:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .app-screen-placeholder .placeholder-icon {
+            font-size: 48px;
+            opacity: 0.6;
+        }
+
+        .app-screen-placeholder .placeholder-text {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .screen-label {
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .app-screens-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-screens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 120px 0;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .steps-line {
+            position: absolute;
+            top: 80px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan), var(--accent-violet));
+            z-index: 0;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 16px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            margin: 0 auto 20px;
+            color: var(--accent-purple);
+            box-shadow: 0 0 30px var(--glow-purple);
+        }
+
+        .step h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Moody AI Section */
+        .moody-ai {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .moody-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .moody-info h2 {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .moody-info > p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .moody-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .moody-pill {
+            padding: 10px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .moody-pill span {
+            color: var(--accent-cyan);
+        }
+
+        .chat-mockup {
+            background: var(--bg-tertiary);
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 20px;
+        }
+
+        .moody-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .moody-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .moody-status {
+            font-size: 12px;
+            color: var(--accent-cyan);
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-msg {
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .chat-msg.user {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet));
+            align-self: flex-end;
+            max-width: 80%;
+        }
+
+        .chat-msg.ai {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            align-self: flex-start;
+            max-width: 90%;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .chat-send {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.1);
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 120px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Future Vision Section */
+        .future {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .future-card {
+            padding: 32px 24px;
+            background: linear-gradient(180deg, var(--bg-tertiary), var(--bg-primary));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .future-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+        }
+
+        .future-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+        }
+
+        .future-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .future-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .future-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 56px;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-github {
+            padding: 16px 32px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-github:hover {
+            border-color: var(--text-secondary);
+            background: var(--glass-bg);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-left h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-left p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-team {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid,
+            .future-grid,
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .steps-container {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            .steps-line {
+                display: none;
+            }
+
+            .step {
+                flex: 0 0 calc(33.333% - 27px);
+            }
+
+            .moody-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .comparison-grid,
+            .features-grid-6,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                flex: 0 0 100%;
+            }
+
+            .future-grid,
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .future-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AI Athens Insights</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#moody">Moody</a></li>
+                <li><a href="#future">Future</a></li>
+            </ul>
+            <button class="nav-cta" onclick="return false;">Coming Soon</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+            <div class="neural-lines"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI Athens Insights</h1>
+                <p class="hero-subtitle">Η πόλη που καταλαβαίνει πώς νιώθεις</p>
+                <p class="hero-description">A smart AI-powered city experience that adapts to your mood and guides you through Athens in real time.</p>
+                <div class="hero-visual-placeholder">
+                    <div class="placeholder-box">
+                        <span class="placeholder-icon">🏙️</span>
+                        <span class="placeholder-text">Hero Image Placeholder</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary" onclick="return false;">Coming Soon</a>
+                    <a href="#app-preview" class="btn-secondary">View Demo</a>
+                </div>
+            </div>
+        </div>
+        <svg class="athens-abstract" viewBox="0 0 1200 200" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+                </linearGradient>
+            </defs>
+            <path d="M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100" stroke="url(#lineGrad)" stroke-width="2" fill="none"/>
+            <path d="M0,130 Q150,80 300,130 T600,130 T900,130 T1200,130" stroke="url(#lineGrad)" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="300" cy="100" r="4" fill="#8b5cf6" opacity="0.8"/>
+            <circle cx="600" cy="100" r="6" fill="#06b6d4" opacity="0.8"/>
+            <circle cx="900" cy="100" r="4" fill="#8b5cf6" opacity="0.8"/>
+        </svg>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title reveal">The problem with today's city apps</h2>
+            <div class="comparison-grid reveal">
+                <div class="comparison-card traditional">
+                    <div class="card-icon">📍</div>
+                    <h3>Traditional Apps</h3>
+                    <ul>
+                        <li>✕ Show places, not emotions</li>
+                        <li>✕ Generic recommendations</li>
+                        <li>✕ No mood personalization</li>
+                        <li>✕ Static, one-size-fits-all</li>
+                    </ul>
+                </div>
+                <div class="comparison-card ai-insights">
+                    <div class="card-icon">✨</div>
+                    <h3>AI Athens Insights</h3>
+                    <ul>
+                        <li><span class="check-icon">✓</span> Emotion-aware suggestions</li>
+                        <li><span class="check-icon">✓</span> Personalized to your mood</li>
+                        <li><span class="check-icon">✓</span> Real-time city adaptation</li>
+                        <li><span class="check-icon">✓</span> Dynamic & intelligent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-header">
+                <h2 class="section-title reveal">A city that understands you</h2>
+                <p class="reveal">Our AI analyzes your emotional state and preferences to create a truly personalized Athens experience that evolves with you.</p>
+            </div>
+            <div class="solution-image reveal">
+                <div class="image-placeholder">
+                    <span class="placeholder-icon">🗺️</span>
+                    <span class="placeholder-text">Mood Map Visualization</span>
+                </div>
+            </div>
+            <div class="features-grid reveal">
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h4>Mood Analysis</h4>
+                    <p>AI understands your emotional context</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Smart Recommendations</h4>
+                    <p>Places that match how you feel</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <h4>Moody Assistant</h4>
+                    <p>Your personal AI city guide</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🗺️</div>
+                    <h4>Live Mood Map</h4>
+                    <p>Real-time city atmosphere data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title reveal">Powerful Features</h2>
+            <div class="features-grid-6 reveal">
+                <div class="feature-card">
+                    <div class="feature-card-icon">📝</div>
+                    <h4>Onboarding Questionnaire</h4>
+                    <p>Personalize your experience from day one</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🗺️</div>
+                    <h4>Live Mood Map</h4>
+                    <p>Real-time emotional landscape of Athens</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">📅</div>
+                    <h4>Weekly Events Feed</h4>
+                    <p>Curated events matching your mood</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">💬</div>
+                    <h4>AI Assistant "Moody"</h4>
+                    <p>Your emotional companion for the city</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🌡️</div>
+                    <h4>Moodiness Map</h4>
+                    <p>City areas rated by atmosphere</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">📹</div>
+                    <h4>Live Traffic Cameras</h4>
+                    <p>Real-time traffic visualization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Placeholder Section -->
+    <section class="visual-showcase">
+        <div class="container">
+            <div class="showcase-grid reveal">
+                <div class="image-placeholder">
+                    <span class="placeholder-icon">📱</span>
+                    <span class="placeholder-text">App Interface Preview</span>
+                </div>
+                <div class="image-placeholder">
+                    <span class="placeholder-icon">🤖</span>
+                    <span class="placeholder-text">AI Assistant Preview</span>
+                </div>
+                <div class="image-placeholder">
+                    <span class="placeholder-icon">🗺️</span>
+                    <span class="placeholder-text">Mood Map Preview</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section class="app-preview" id="app-preview">
+        <div class="container">
+            <h2 class="section-title reveal">App Preview</h2>
+            <div class="app-screens-grid reveal">
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">📝</span>
+                        <span class="placeholder-text">Onboarding Screen</span>
+                    </div>
+                    <p class="screen-label">Onboarding</p>
+                </div>
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">🗺️</span>
+                        <span class="placeholder-text">Mood Map Screen</span>
+                    </div>
+                    <p class="screen-label">Mood Map Home</p>
+                </div>
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">📅</span>
+                        <span class="placeholder-text">Events Screen</span>
+                    </div>
+                    <p class="screen-label">Weekly Events</p>
+                </div>
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">💬</span>
+                        <span class="placeholder-text">AI Chat Screen</span>
+                    </div>
+                    <p class="screen-label">Moody AI Chat</p>
+                </div>
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">📊</span>
+                        <span class="placeholder-text">Analytics Screen</span>
+                    </div>
+                    <p class="screen-label">Mood Analytics</p>
+                </div>
+                <div class="app-screen-item">
+                    <div class="app-screen-placeholder">
+                        <span class="placeholder-icon">📹</span>
+                        <span class="placeholder-text">Traffic Camera Screen</span>
+                    </div>
+                    <p class="screen-label">Traffic Cameras</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title reveal">How It Works</h2>
+            <div class="steps-container reveal">
+                <div class="steps-line"></div>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Onboarding</h4>
+                    <p>Complete the mood questionnaire</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>AI Analysis</h4>
+                    <p>We analyze your preferences</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Suggestions</h4>
+                    <p>Get personalized recommendations</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Explore</h4>
+                    <p>Navigate via mood map</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Assistant</h4>
+                    <p>Moody helps in real time</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Optimize</h4>
+                    <p>Traffic cameras guide routes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moody AI Section -->
+    <section class="moody-ai" id="moody">
+        <div class="container">
+            <div class="moody-content reveal">
+                <div class="moody-info">
+                    <h2>Meet Moody</h2>
+                    <p>Your emotional AI city companion that understands how you feel and suggests the perfect Athens experience.</p>
+                    <div class="moody-features">
+                        <div class="moody-pill"><span>✓</span> Answers questions</div>
+                        <div class="moody-pill"><span>✓</span> Suggests places</div>
+                        <div class="moody-pill"><span>✓</span> Understands mood</div>
+                        <div class="moody-pill"><span>✓</span> Guides navigation</div>
+                    </div>
+                </div>
+                <div class="chat-mockup">
+                    <div class="chat-header">
+                        <div class="moody-avatar">🤖</div>
+                        <div>
+                            <div class="moody-name">Moody</div>
+                            <div class="moody-status">Online • AI Assistant</div>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-msg ai">Hey! I'm Moody, your Athens guide. How are you feeling today?</div>
+                        <div class="chat-msg user">I'm feeling a bit stressed and need to relax.</div>
+                        <div class="chat-msg ai">I understand. Let me suggest some calm spots - try the National Garden or a seaside cafe in Mikrolimano!</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" placeholder="Ask Moody...">
+                        <button class="chat-send">→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="container">
+            <h2 class="section-title reveal">Impact</h2>
+            <div class="metrics-grid reveal">
+                <div class="metric-card">
+                    <div class="metric-value">50K+</div>
+                    <div class="metric-label">Active Users</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Mood Match Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">12K+</div>
+                    <div class="metric-label">Places Mapped</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">4.9</div>
+                    <div class="metric-label">App Rating</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Tourism Boost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Vision Section -->
+    <section class="future" id="future">
+        <div class="container">
+            <h2 class="section-title reveal">Future Vision</h2>
+            <div class="future-grid reveal">
+                <div class="future-card">
+                    <div class="future-icon">⌚</div>
+                    <h4>Wearable Integration</h4>
+                    <p>Connect with smartwatches for real-time emotion detection</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                <div class="future-card">
+                    <div class="future-icon">😊</div>
+                    <h4>Emotion Detection</h4>
+                    <p>AI-powered facial expression analysis for deeper insights</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                <div class="future-card">
+                    <div class="future-icon">🔮</div>
+                    <h4>Predictive Events</h4>
+                    <p>AI predicts events you'll love before they happen</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                <div class="future-card">
+                    <div class="future-icon">🚗</div>
+                    <h4>Smart Mobility</h4>
+                    <p>Integrate with city transport for seamless navigation</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                <div class="future-card">
+                    <div class="future-icon">📊</div>
+                    <h4>City Analytics</h4>
+                    <p>Dashboard for urban planners to understand city mood</p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="reveal">Experience Athens like never before</h2>
+                <div class="cta-buttons reveal">
+                    <a href="#" class="btn-primary" onclick="return false;">Coming Soon</a>
+                    <a href="#app-preview" class="btn-secondary">Try Demo</a>
+                    <a href="#" class="btn-github" onclick="return false;">
+                        <span>⌘</span> View GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>AI Athens Insights</h3>
+                    <p>Hackathon Project 2026</p>
+                    <p class="footer-team">Team: Athens AI Builders</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">𝕏</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">⬡</a>
+                    <a href="#" class="social-link">◉</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 AI Athens Insights. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderBottom = '1px solid var(--glass-border)';
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+
+        // Phone mockup drag scroll for app preview
+        const previewContainer = document.querySelector('.preview-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        previewContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            previewContainer.style.cursor = 'grabbing';
+            startX = e.pageX - previewContainer.offsetLeft;
+            scrollLeft = previewContainer.scrollLeft;
+        });
+
+        previewContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            previewContainer.style.cursor = 'grab';
+        });
+
+        previewContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            previewContainer.style.cursor = 'grab';
+        });
+
+        previewContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - previewContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            previewContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch support for mobile
+        previewContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - previewContainer.offsetLeft;
+            scrollLeft = previewContainer.scrollLeft;
+        });
+
+        previewContainer.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX - previewContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            previewContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
