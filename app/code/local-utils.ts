@@ -19,30 +19,32 @@ export class localUtils {
             Application.ios.delegate = MyController;
         }
 
-        const window = Application.android.startActivity.getWindow();
+        if (isAndroid) {
+            const window = Application.android.startActivity.getWindow();
 
-        if (Device.sdkVersion >= "30") {
-            const controller = window.getInsetsController();
-            if (controller) {
-                if (darkText) {
-                    controller.setSystemBarsAppearance(
-                        android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                        android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                    );
-                } else {
-                    controller.setSystemBarsAppearance(
-                        0,
-                        android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                    );
+            if (Device.sdkVersion >= "30") {
+                const controller = window.getInsetsController();
+                if (controller) {
+                    if (darkText) {
+                        controller.setSystemBarsAppearance(
+                            android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                            android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                        );
+                    } else {
+                        controller.setSystemBarsAppearance(
+                            0,
+                            android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                        );
+                    }
                 }
+            } else {
+                const decorView = window.getDecorView();
+                decorView.setSystemUiVisibility(
+                    android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                    (darkText ? android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0)
+                );
             }
-        } else {
-            const decorView = window.getDecorView();
-            decorView.setSystemUiVisibility(
-                android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                (darkText ? android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0)
-            );
         }
     }
 
